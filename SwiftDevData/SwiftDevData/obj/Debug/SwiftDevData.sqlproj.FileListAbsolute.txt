@@ -1,5 +1,0 @@
-E:\University\SwiftDev\SwiftDevData\SwiftDevData\bin\Debug\SwiftDevData.dacpac
-E:\University\SwiftDev\SwiftDevData\SwiftDevData\bin\Debug\SwiftDevData.dll
-E:\University\SwiftDev\SwiftDevData\SwiftDevData\bin\Debug\SwiftDevData.pdb
-E:\University\SwiftDev\SwiftDevData\SwiftDevData\obj\Debug\SwiftDevData.dll
-E:\University\SwiftDev\SwiftDevData\SwiftDevData\obj\Debug\SwiftDevData.pdb
