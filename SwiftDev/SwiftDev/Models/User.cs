@@ -21,6 +21,7 @@ namespace SwiftDev.Models
         public string LastName { get; set; }
         public string Role { get; set; }
         public Nullable<int> CurrentProject { get; set; }
+        public int UserStillEmployed { get; set; }
     
         public virtual Project Project { get; set; }
         public virtual UserRole UserRole { get; set; }
