@@ -1,10 +1,10 @@
-﻿body 
+.login-background 
 {
     margin: 0 auto;
     padding: 0;
-    background-image: url('loginBG.jpg');
+    background-image: url('../../assets/img/loginBG.jpg');
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;
     background-attachment: fixed;
     
         
@@ -14,7 +14,7 @@
 
 .logoIMG
 {
-    background-image: url('logo.png');
+    background-image: url('../../assets/img/logo.png');
     background-repeat: no-repeat;
     background-size: 20%;
     background-position: center;
