@@ -12,7 +12,7 @@ namespace SwiftDev.Controllers
 {
     public class UsersController : Controller
     {
-        private SwiftDevDataEntities db = new SwiftDevDataEntities();
+        private SwiftDevDataEntities1 db = new SwiftDevDataEntities1();
 
         // GET: Users
         public ActionResult Index()
@@ -49,7 +49,7 @@ namespace SwiftDev.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,Username,Password,FirstName,LastName,Role,CurrentProject")] User user)
+        public ActionResult Create([Bind(Include = "UserId,Username,Password,FirstName,LastName,Role,CurrentProject,UserStillEmployed")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace SwiftDev.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,Username,Password,FirstName,LastName,Role,CurrentProject")] User user)
+        public ActionResult Edit([Bind(Include = "UserId,Username,Password,FirstName,LastName,Role,CurrentProject,UserStillEmployed")] User user)
         {
             if (ModelState.IsValid)
             {

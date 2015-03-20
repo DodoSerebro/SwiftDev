@@ -26,7 +26,7 @@ namespace SwiftDev.Models
         public string Methodology { get; set; }
         public System.DateTime ProjectStart { get; set; }
         public Nullable<System.DateTime> ProjectEnd { get; set; }
-        public Nullable<int> ProjectTermination { get; set; }
+        public bool ProjectTermination { get; set; }
     
         public virtual Methodology Methodology1 { get; set; }
         public virtual ICollection<User> Users { get; set; }

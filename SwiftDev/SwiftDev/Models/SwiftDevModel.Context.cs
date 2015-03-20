@@ -13,10 +13,10 @@ namespace SwiftDev.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SwiftDevDataEntities : DbContext
+    public partial class SwiftDevDataEntities1 : DbContext
     {
-        public SwiftDevDataEntities()
-            : base("name=SwiftDevDataEntities")
+        public SwiftDevDataEntities1()
+            : base("name=SwiftDevDataEntities1")
         {
         }
     

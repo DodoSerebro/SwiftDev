@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SwiftDevDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SwiftDevDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Methodology">
           <Key>
             <PropertyRef Name="Methodology" />
@@ -22,14 +22,14 @@
           <Property Name="Methodology" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="ProjectStart" Type="date" Nullable="false" />
           <Property Name="ProjectEnd" Type="date" />
-          <Property Name="ProjectTermination" Type="int" />
+          <Property Name="ProjectTermination" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="UserId" Type="int" Nullable="false" />
-          <Property Name="Username" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Username" Type="nchar" MaxLength="40" Nullable="false" />
           <Property Name="Password" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="FirstName" Type="nchar" MaxLength="15" Nullable="false" />
           <Property Name="LastName" Type="nchar" MaxLength="15" Nullable="false" />
@@ -97,7 +97,8 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SwiftDevDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -119,24 +120,24 @@
           <Property Name="Methodology" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="ProjectStart" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ProjectEnd" Type="DateTime" Precision="0" />
+          <Property Name="ProjectTermination" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Methodology1" Relationship="Self.FK_Project_Methodology" FromRole="Project" ToRole="Methodology" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_Project" FromRole="Project" ToRole="User" />
-          <Property Name="ProjectTermination" Type="Int32" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Username" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Role" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="CurrentProject" Type="Int32" />
+          <Property Name="UserStillEmployed" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Project" Relationship="Self.FK_User_Project" FromRole="User" ToRole="Project" />
           <NavigationProperty Name="UserRole" Relationship="Self.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
-          <Property Name="UserStillEmployed" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -181,7 +182,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SwiftDevDataEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SwiftDevDataEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Methodologies" EntityType="Self.Methodology" />
           <EntitySet Name="Projects" EntityType="Self.Project" />
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -204,7 +205,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SwiftDevDataModelStoreContainer" CdmEntityContainer="SwiftDevDataEntities">
+        <EntityContainerMapping StorageEntityContainer="SwiftDevDataModelStoreContainer" CdmEntityContainer="SwiftDevDataEntities1">
           <EntitySetMapping Name="Methodologies">
             <EntityTypeMapping TypeName="SwiftDevDataModel.Methodology">
               <MappingFragment StoreEntitySet="Methodology">
@@ -215,7 +216,6 @@
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="SwiftDevDataModel.Project">
               <MappingFragment StoreEntitySet="Project">
-                <ScalarProperty Name="ProjectTermination" ColumnName="ProjectTermination" />
                 <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
                 <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
@@ -223,13 +223,13 @@
                 <ScalarProperty Name="Methodology" ColumnName="Methodology" />
                 <ScalarProperty Name="ProjectStart" ColumnName="ProjectStart" />
                 <ScalarProperty Name="ProjectEnd" ColumnName="ProjectEnd" />
+                <ScalarProperty Name="ProjectTermination" ColumnName="ProjectTermination" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="SwiftDevDataModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="UserStillEmployed" ColumnName="UserStillEmployed" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -237,6 +237,7 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="CurrentProject" ColumnName="CurrentProject" />
+                <ScalarProperty Name="UserStillEmployed" ColumnName="UserStillEmployed" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
