@@ -16,5 +16,55 @@ textarea {
     max-width: 280px;
 }
 
-
+#loginBody
+{
+    margin: 0 auto;
+    padding: 0;
+    background-image: url('../Content/images/loginBG.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
+
+#login-container
+{
+    max-width: 25%;
+    min-height:250px;
+    
+    margin: 0 auto;
+    padding-top:1%;
+    margin-top:5%;
+    
+    background-color: rgba(207, 205, 231, 0.2);     
+    border-radius: 15px; 
+    -moz-border-radius: 15px; 
+    -webkit-border-radius: 15px; 
+}
+
+.logoIMG
+{
+    background-image: url('../Content/images/logo.png');
+    background-repeat: no-repeat;
+    background-size: 20%;
+    background-position: center;
+    margin-top:1%;
+    height: 200px;
+    position: relative;
+}
+
+@media (max-width: 600px) 
+{
+    #login-container
+    {
+        margin: 0 auto;
+        padding:0;
+        width:auto;
+    }
+
+    .logoIMG
+    {
+        background-size:55%;
+    }
+}
+
+
