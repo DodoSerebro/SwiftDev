@@ -64,6 +64,32 @@ namespace SwiftDev.Migrations
                 UserStillEmployed = true,
 
             };
+
+
+            success = idManager.CreateUser(newSuperUser, "SuperUser1");
+            if (!success == true) return success;
+
+            success = idManager.AddUserToRole(newSuperUser.Id, "SuperUser");
+            if (!success == true) return success;
+
+            success = idManager.AddUserToRole(newSuperUser.Id, "Admin");
+            if (!success == true) return success;
+
+            success = idManager.AddUserToRole(newSuperUser.Id, "Designer");
+            if (!success == true) return success;
+
+            success = idManager.AddUserToRole(newSuperUser.Id, "ReqEngineer");
+            if (!success == true) return success;
+
+            success = idManager.AddUserToRole(newSuperUser.Id, "Developer");
+            if (!success == true) return success;
+
+            success = idManager.AddUserToRole(newSuperUser.Id, "TeamMember");
+            if (!success == true) return success;
+
+            success = idManager.AddUserToRole(newSuperUser.Id, "Tester");
+            if (!success == true) return success;
+
             return success;
         }
     }
