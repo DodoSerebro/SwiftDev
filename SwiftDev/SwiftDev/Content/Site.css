@@ -54,12 +54,13 @@ textarea {
 
 @media (max-width: 600px) 
 {
+
     #login-container
     {
         margin: 0 auto;
         padding:0;
-        width:auto;
     }
+    
 
     .logoIMG
     {

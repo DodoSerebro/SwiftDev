@@ -124,6 +124,18 @@ namespace SwiftDev.Controllers
         }
 
 
+        //--- Edit Methods (ActionResult and Task) to edit User Info
+        [Authorize(Roles="Admin,SuperUser")]
+        public ActionResult Edit (string id, ManageMessageId? Message=null)
+        {
+            var DB = new ApplicationDbContext();
+            var user = DB.Users.First(u => u.UserName == id);
+            var model = new EditUserViewModel(user);
+            ViewBag.MessageId = Message;
+            return View(model);
+        }
+
+
         [HttpPost]
         [Authorize(Roles = "Admin, SuperUser")]
         [ValidateAntiForgeryToken]
@@ -178,7 +190,7 @@ namespace SwiftDev.Controllers
 
         // Assign USER ROLES to Users to limit access
         [Authorize(Roles = "Admin, SuperUser")]
-        public ActionResult AssignUserRoles (string ID)
+        public ActionResult UserRoles (string ID)
         {
             var DB = new ApplicationDbContext();
             var user = DB.Users.First(u => u.UserName == ID);
@@ -189,7 +201,7 @@ namespace SwiftDev.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin, SuperUser")]
         [ValidateAntiForgeryToken]
-        public ActionResult AssignUserRoles(SelectUserRolesViewModel model)
+        public ActionResult UserRoles(SelectUserRolesViewModel model)
         {
             if (ModelState.IsValid)
             {
