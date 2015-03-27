@@ -7,7 +7,7 @@ namespace SwiftDev.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SwiftDev.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
@@ -16,7 +16,7 @@ namespace SwiftDev.Migrations
 
         
         // -- Creating Roles for Database.
-        protected override void Seed(SwiftDev.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             this.AddUserAndRoles();
         }

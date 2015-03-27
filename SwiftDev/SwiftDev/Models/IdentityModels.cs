@@ -44,6 +44,10 @@ namespace SwiftDev.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<SwiftDev.Models.Project> Projects { get; set; }
+
+        public System.Data.Entity.DbSet<SwiftDev.Models.Methodology> Methodologies { get; set; }
+
     }
 
     public class IdentityManager
