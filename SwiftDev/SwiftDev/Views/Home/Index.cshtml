@@ -1,15 +1,78 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@{  
+    ViewBag.Title = "SwiftDev";
 }
+<div class="container">
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    <ul class="ca-menu">
+
+        <!-- Start of Index-->
+        <li>
+            <a href="index.php">
+                <span class="ca-icon"><i class="fa fa-home fa-3x"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main"> Index </h2>
+                    <h3 class="ca-sub"> Schedule and Notifications</h3>
+                </div> <!-- End of ca-content-->
+            </a>
+        </li> <!-- End of Index-->
+        <!-- Start of High Level Design-->
+        <li>
+            <a href="systemdesign.php">
+                <span class="ca-icon"><i class="fa fa-file fa-3x"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main"> System Designs</h2>
+                    <h3 class="ca-sub"> Any High Level Designs (Activity Diagrams, DFDs...)</h3>
+                </div> <!-- End of ca-content-->
+            </a>
+        </li> <!-- End of High Level Design -->
+        <!-- Start of Version Control -->
+        <li>
+            <a href="versionControl.php">
+                <span class="ca-icon"><i class="fa fa-cogs fa-3x"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main"> Version Control</h2>
+                    <h3 class="ca-sub"> Every version of the software uplaoded found here</h3>
+                </div> <!-- End of ca-content-->
+            </a>
+        </li> <!-- End of Version Control -->
+        <!-- Start of Testing -->
+        <li>
+            <a href="#">
+                <span class="ca-icon"><i class="fa fa-wrench fa-3x"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main"> Software Testing</h2>
+                    <h3 class="ca-sub"> Tools for Testing</h3>
+                </div> <!-- End of ca-content-->
+            </a>
+        </li> <!-- End of Testing -->
+        <!-- Start of Progress Report-->
+        <li>
+            <a href="#">
+                <span class="ca-icon"><i class="fa fa-list fa-3x"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main"> Progress Report</h2>
+                    <h3 class="ca-sub"> Progression Charts</h3>
+                    <h3 class="ca-sub"> Important to UPDATE REGULARY</h3>
+                </div> <!-- End of ca-content-->
+            </a>
+        </li> <!-- End of Progression Report -->
+        <!-- Start of Progress Report-->
+        <li>
+            <a href="#">
+                <span class="ca-icon"><i class="fa fa-warning fa-3x"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main"> Troubleshooting</h2>
+                    <h3 class="ca-sub"> FAQ about SwiftDev. Report any problems about SwiftDev here</h3>
+                </div> <!-- End of ca-content-->
+            </a>
+        </li> <!-- End of Progression Report -->
+
+
+    </ul> <!-- End of ca-menu -->
+</div> <!--End of Container-->
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-7">
         <h2>Getting started</h2>
         <p>
             ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
