@@ -1,0 +1,32 @@
+﻿@model SwiftDev.Models.SystemDesignModel
+
+@{
+    ViewBag.Title = "System Designs";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!--    This class will show all the Concerning System Designs with 
+        the option of uploading a new design (providing User has sufficient rights)-->
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+    
+    <div> Select Image to upload
+    <input name="image" type="file" multiple="multiple">
+    <input type="submit" value="Upload Image" />
+    </div>
+    
+}
+<ul>
+
+
+    @foreach (var item in Model.Files)
+    {
+        <li>
+            <a href="@item.URL">@item.FileName</a>(@item.Size bytes)
+        </li>
+    }
+</ul>
+

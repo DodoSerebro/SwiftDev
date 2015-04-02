@@ -48,6 +48,7 @@ namespace SwiftDev.Models
 
         public System.Data.Entity.DbSet<SwiftDev.Models.Methodology> Methodologies { get; set; }
 
+        
     }
 
     public class IdentityManager

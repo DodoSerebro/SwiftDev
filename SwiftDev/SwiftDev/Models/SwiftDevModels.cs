@@ -35,7 +35,10 @@ namespace SwiftDev.Models
         [Required]
         public string ProjectLeader { get; set; }
         [Required]
+        [DataType(DataType.DateTime)]
         public DateTime? DateStarted { get; set; }
+        [Required]
+        [DataType(DataType.DateTime)]
         public DateTime? DateFinished { get; set; }
 
 
