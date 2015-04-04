@@ -40,12 +40,12 @@
     </div>
 
 }
-<hr />
+
 <!-- Class Diagarm Show Files-->
 @{
     Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "classdiagram" });
 }
-
+<hr />
 
 <!---------------------------------------->
 @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -60,13 +60,13 @@
     </div>
 
 }
-<hr/>
+
 <!-- Object Diagarm Show Files-->
 @{
     Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "objectdiagram" });
 }
 
-
+<hr />
 <!---------------------------------------->
 @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -80,13 +80,13 @@
     </div>
 
 }
-<hr />
+
 <!-- Component Diagarm Show Files-->
 @{
     Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "componentdiagram" });
 }
 
-
+<hr />
 <!---------------------------------------->
 @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -100,14 +100,14 @@
     </div>
 
 }
-<hr />
+
 
 <!-- Deployment Diagarm Show Files-->
 @{
     Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "deploymentdiagram" });
 }
 
-
+<hr />
 <!---------------------------------------->
 @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -121,13 +121,13 @@
     </div>
 
 }
-<hr />
+
 <!-- Use Case Diagarm Show Files-->
 @{
     Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "usecasediagram" });
 }
 
-
+<hr />
 <!---------------------------------------->
 @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -141,13 +141,13 @@
     </div>
 
 }
-<hr />
+
 
 <!-- Sequence Diagarm Show Files-->
 @{
     Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "sequencediagram" });
 }
-
+<hr />
 
 <!---------------------------------------->
 
@@ -158,17 +158,17 @@
 
     <div>
         Select Image to upload an Collaboration Diagram
-        <input name="collaboration" type="file" multiple="multiple">
+        <input name="collaborationdiagram" type="file" multiple="multiple">
         <input type="submit" value="Upload Image" />
     </div>
 
 }
-<hr />
+
 <!-- Collaboration Diagarm Show Files-->
 @{
-    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "collaboration" });
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "collaborationdiagram" });
 }
-
+<hr />
 
 <!---------------------------------------->
 @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))

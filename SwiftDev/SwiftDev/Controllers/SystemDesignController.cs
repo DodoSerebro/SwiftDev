@@ -97,18 +97,88 @@ namespace SwiftDev.Controllers
                 blob.Properties.ContentType = objectdiagram.ContentType;
                 blob.UploadFromStream(objectdiagram.InputStream);
             }
+            
+            else if (componentdiagram != null)
+            {
+                string uniqueBlobName = string.Format("componentdiagram/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(componentdiagram.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+
+
+                blob.Properties.ContentType = componentdiagram.ContentType;
+                blob.UploadFromStream(componentdiagram.InputStream);
+            }
+            else if (deploymentdiagram !=null)
+            {
+                string uniqueBlobName = string.Format("deploymentdiagram/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(deploymentdiagram.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+
+
+                blob.Properties.ContentType = deploymentdiagram.ContentType;
+                blob.UploadFromStream(deploymentdiagram.InputStream);
+            }
+            else if (usecasediagram != null)
+            {
+                string uniqueBlobName = string.Format("usecasediagram/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(usecasediagram.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+
+
+                blob.Properties.ContentType = usecasediagram.ContentType;
+                blob.UploadFromStream(usecasediagram.InputStream);
+            }
+            else if (sequencediagram != null)
+            {
+                string uniqueBlobName = string.Format("sequencediagram/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(sequencediagram.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+
+
+                blob.Properties.ContentType = sequencediagram.ContentType;
+                blob.UploadFromStream(sequencediagram.InputStream);
+            }
+            else if (collaborationdiagram != null)
+            {
+                string uniqueBlobName = string.Format("collaborationdiagram/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(collaborationdiagram.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+
+
+                blob.Properties.ContentType = collaborationdiagram.ContentType;
+                blob.UploadFromStream(collaborationdiagram.InputStream);
+            }
+            else if (statediagram != null)
+            {
+                string uniqueBlobName = string.Format("statediagram/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(statediagram.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+
+
+                blob.Properties.ContentType = statediagram.ContentType;
+                blob.UploadFromStream(statediagram.InputStream);
+            }
+            else if (activitydiagram != null)
+            {
+                string uniqueBlobName = string.Format("activitydiagram/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(activitydiagram.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+
+
+                blob.Properties.ContentType = activitydiagram.ContentType;
+                blob.UploadFromStream(activitydiagram.InputStream);
+            }
             else
             {
 
             }
-
             return RedirectToAction("Index");    
                 
         
         }
 
         [ChildActionOnly]
-        public ViewResult _showBlobs(string containerName)
+        public PartialViewResult _showBlobs(string containerName)
         {
             StorageCredentials credentials = new StorageCredentials("swiftdevelopmentstorage", "HqaCkZjdQ8w/DX/fS3wDxU6HXbeqV5EZ1b+UQaKALxaJDrN9JoZZYn8Q0KT6QR4tCrdGQicxE+tKRKScjINW8w==");
             CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
@@ -120,7 +190,7 @@ namespace SwiftDev.Controllers
      
            
 
-            return View(blobsList);
+            return PartialView(blobsList);
     
         }
 
