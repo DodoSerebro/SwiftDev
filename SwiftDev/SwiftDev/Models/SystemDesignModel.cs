@@ -13,10 +13,39 @@ using Microsoft.WindowsAzure.Storage;
 
 namespace SwiftDev.Models
 {
+    public partial class SystemDesign
+    {
+        public string URL { get; set; }
+ 
+
+        public SystemDesign() { }
+
+        public SystemDesign (string url, string directory)
+        {
+            this.URL = url;
+         
+        }
+
+        public static SystemDesign returnImageURL(IListBlobItem item)
+        {
+
+            if (item is CloudBlockBlob)
+            {
+                var blob = (CloudBlockBlob)item;
+                return new SystemDesign 
+                {   URL = blob.Uri.ToString(),
+                   
+                };
+
+            }
+            return null;
+        }
+
+    }   
     
 
     // System Design Model 
-    public class SystemDesignModel
+    public partial class SystemDesignModel
     {
         public SystemDesignModel() : this(null)
         {
@@ -27,21 +56,14 @@ namespace SwiftDev.Models
         {
             Files = new List<SystemDesign>();
 
-            if (list != null && list.Count<IListBlobItem>() > 0)
-            {
-                foreach (var item in list)
+            foreach (var item in list)
                 {
-                    SystemDesign info = SystemDesign.CreateImageFromIListBlob(item);
-                    if (info != null)
-                    {
-                        Files.Add(info);
-                    }
+                    SystemDesign test = SystemDesign.returnImageURL(item);
+                    Files.Add(test);
+                  
                 }
-            }
-            else
-            {
-                
-            }
+            
+           
         }
         public List<SystemDesign> Files { get; set; }
     }

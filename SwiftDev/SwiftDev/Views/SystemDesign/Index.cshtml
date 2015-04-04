@@ -1,4 +1,5 @@
 ﻿@model SwiftDev.Models.SystemDesignModel
+           
 
 @{
     ViewBag.Title = "System Designs";
@@ -13,20 +14,205 @@
     @Html.AntiForgeryToken();
     @Html.ValidationSummary(true);
     
-    <div> Select Image to upload
-    <input name="image" type="file" multiple="multiple">
+    <div> Select Image to upload a DFD
+        <input name="dfd" type="file" multiple="multiple">
     <input type="submit" value="Upload Image" />
     </div>
     
 }
-<ul>
+
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "dfd" });
+}
+<hr />
 
 
-    @foreach (var item in Model.Files)
-    {
-        <li>
-            <a href="@item.URL">@item.FileName</a>(@item.Size bytes)
-        </li>
-    }
-</ul>
+<!---------------------------------------->
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
 
+    <div>
+        Select Image to upload a ClassDiagram
+        <input name="classdiagram" type="file" multiple="multiple">
+        <input type="submit" value="Upload Image" />
+    </div>
+
+}
+<hr />
+<!-- Class Diagarm Show Files-->
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "classdiagram" });
+}
+
+
+<!---------------------------------------->
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+
+    <div>
+        Select Image to upload an Object Diagram
+        <input name="objectdiagram" type="file" multiple="multiple">
+        <input type="submit" value="Upload Image" />
+    </div>
+
+}
+<hr/>
+<!-- Object Diagarm Show Files-->
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "objectdiagram" });
+}
+
+
+<!---------------------------------------->
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+
+    <div>
+        Select Image to upload a Component
+        <input name="componentdiagram" type="file" multiple="multiple">
+        <input type="submit" value="Upload Image" />
+    </div>
+
+}
+<hr />
+<!-- Component Diagarm Show Files-->
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "componentdiagram" });
+}
+
+
+<!---------------------------------------->
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+
+    <div>
+        Select Image to upload an Deployment Diagram
+        <input name="deploymentdiagram" type="file" multiple="multiple">
+        <input type="submit" value="Upload Image" />
+    </div>
+
+}
+<hr />
+
+<!-- Deployment Diagarm Show Files-->
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "deploymentdiagram" });
+}
+
+
+<!---------------------------------------->
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+
+    <div>
+        Select Image to upload a Use Case
+        <input name="usecasediagram" type="file" multiple="multiple">
+        <input type="submit" value="Upload Image" />
+    </div>
+
+}
+<hr />
+<!-- Use Case Diagarm Show Files-->
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "usecasediagram" });
+}
+
+
+<!---------------------------------------->
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+
+    <div>
+        Select Image to upload an Sequence Diagram
+        <input name="sequencediagram" type="file" multiple="multiple">
+        <input type="submit" value="Upload Image" />
+    </div>
+
+}
+<hr />
+
+<!-- Sequence Diagarm Show Files-->
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "sequencediagram" });
+}
+
+
+<!---------------------------------------->
+
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+
+    <div>
+        Select Image to upload an Collaboration Diagram
+        <input name="collaboration" type="file" multiple="multiple">
+        <input type="submit" value="Upload Image" />
+    </div>
+
+}
+<hr />
+<!-- Collaboration Diagarm Show Files-->
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "collaboration" });
+}
+
+
+<!---------------------------------------->
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+
+    <div>
+        Select Image to upload a State Diagram
+        <input name="statediagram" type="file" multiple="multiple">
+        <input type="submit" value="Upload Image" />
+    </div>
+
+}
+
+<!-- stateDiagram show files-->
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "statediagram" });
+}
+<hr />
+
+<!---------------------------------------->
+@using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+
+    <div>
+        Select Image to upload a Activity Diagram
+        <input name="activitydiagram" type="file" multiple="multiple">
+        <input type="submit" value="Upload Image" />
+    </div>
+
+}
+<!-- Activity Diagarm Show Files-->
+@{
+    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "activitydiagram" });
+}
+<hr />
+
+
+
+
+
+<br/>
+<br />
+<br />

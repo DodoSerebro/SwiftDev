@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
+
 using System.Configuration;
 using System.IO;
 
@@ -11,7 +14,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure;
-
+using SwiftDev.Models;
 
 
 namespace SwiftDev.Controllers
@@ -22,108 +25,104 @@ namespace SwiftDev.Controllers
         // GET: SystemDesign
         public ActionResult Index()
         {
-            StorageCredentials credentials = new StorageCredentials("swiftdevelopmentstorage", "HqaCkZjdQ8w/DX/fS3wDxU6HXbeqV5EZ1b+UQaKALxaJDrN9JoZZYn8Q0KT6QR4tCrdGQicxE+tKRKScjINW8w==");
-            CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
-
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer storageContainer = blobClient.GetContainerReference("systemdesign");
-
-            Models.SystemDesignModel blobsList = new Models.SystemDesignModel(storageContainer.ListBlobs(useFlatBlobListing: true));
-            
-
-            return View(blobsList);
+            return View();
         }
 
         [HttpPost]
-        public ActionResult ImageUpload(string getFileName)
+        public ActionResult ImageUpload()
         {
-                
-            var image = Request.Files["image"];
-            if (image == null)
-            {
-                
-                ViewBag.UploadMessage = "Failed to Upload Image";
-            }
-            else
-            {
-                ViewBag.UploadMessage = String.Format("Image {0} has been Uploaded", image.FileName);
-            }
 
+
+            var dfd = Request.Files["dfd"];
+            var classdiagram = Request.Files["classdiagram"];
+            var objectdiagram = Request.Files["objectdiagram"];
+            var componentdiagram = Request.Files["componentdiagram"];
+            var deploymentdiagram = Request.Files["deploymentdiagram"];
+            var usecasediagram = Request.Files["usecasediagram"];
+            var sequencediagram = Request.Files["sequencediagram"];
+            var collaborationdiagram = Request.Files["collaborationdiagram"];
+            var statediagram = Request.Files["statediagram"];
+            var activitydiagram = Request.Files["activitydiagram"];
+            
+
+            
             // --- SETTING UP THE CONTAINER --- //
 
             // Create the CloudStorageAccount
 
-            StorageCredentials credentials = new StorageCredentials ("swiftdevelopmentstorage","HqaCkZjdQ8w/DX/fS3wDxU6HXbeqV5EZ1b+UQaKALxaJDrN9JoZZYn8Q0KT6QR4tCrdGQicxE+tKRKScjINW8w==" );
+            StorageCredentials credentials = new StorageCredentials("swiftdevelopmentstorage", "HqaCkZjdQ8w/DX/fS3wDxU6HXbeqV5EZ1b+UQaKALxaJDrN9JoZZYn8Q0KT6QR4tCrdGQicxE+tKRKScjINW8w==");
             CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
-          
+
+
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            
             // Retrieve Reference to container
             CloudBlobContainer container = blobClient.GetContainerReference("systemdesign");
+            
             // Create if Non-existant
             container.CreateIfNotExists();
 
             // Change Default Private Permission to Public
             container.SetPermissions(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
-            // --- UPLOAD BLOB TO CONTAINER --- // 
 
-            // Saving the image to a BLOB
-            string uniqueBlobName = string.Format("systemdesign/image_{0}{1}",
-                Guid.NewGuid().ToString(), Path.GetExtension(image.FileName));
-            CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+            // Depending on the Design type (e.g. Flowchart, dfd..) the blob will be uploaded to a different sub folder
 
-            blob.Properties.ContentType = image.ContentType;
-            blob.UploadFromStream(image.InputStream);
+            if (dfd != null)
+            {
+                string uniqueBlobName = string.Format("dfd/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(dfd.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                
+                blob.Properties.ContentType = dfd.ContentType;
+                blob.UploadFromStream(dfd.InputStream);
+            }
+            else if (classdiagram != null)
+            {
+                string uniqueBlobName = string.Format("classdiagram/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(classdiagram.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                
+
+                blob.Properties.ContentType = classdiagram.ContentType;
+                blob.UploadFromStream(classdiagram.InputStream);
+            }
+            else if (objectdiagram != null)
+            {
+                string uniqueBlobName = string.Format("objectdiagram/image_{0}{1}",
+                    Guid.NewGuid().ToString(), Path.GetExtension(objectdiagram.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
 
 
-            // checking the URI  [Test Purposes]
-            Console.Write(blob.Uri.ToString());
+                blob.Properties.ContentType = objectdiagram.ContentType;
+                blob.UploadFromStream(objectdiagram.InputStream);
+            }
+            else
+            {
+
+            }
 
             return RedirectToAction("Index");    
                 
         
         }
 
-        public ActionResult showBlobs()
+        [ChildActionOnly]
+        public ViewResult _showBlobs(string containerName)
         {
             StorageCredentials credentials = new StorageCredentials("swiftdevelopmentstorage", "HqaCkZjdQ8w/DX/fS3wDxU6HXbeqV5EZ1b+UQaKALxaJDrN9JoZZYn8Q0KT6QR4tCrdGQicxE+tKRKScjINW8w==");
             CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
 
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer storageContainer = blobClient.GetContainerReference("systemdesign");
 
-            CloudBlobContainer container = blobClient.GetContainerReference("swiftdevelopmentstorage");
+            Models.SystemDesignModel blobsList = new Models.SystemDesignModel(storageContainer.ListBlobs(containerName, useFlatBlobListing: true));
+     
+           
 
-            // Loop to retrive items inside the container
-            foreach (IListBlobItem item in container.ListBlobs(null, false))
-            {
-                if (item.GetType() == typeof(CloudBlockBlob))
-                {
-                    CloudBlockBlob blob = (CloudBlockBlob)item;
-
-                    Console.WriteLine("Block Blob of length {0} : {1}", blob.Properties.Length, blob.Uri);
-                }
-                else if (item.GetType() == typeof(CloudPageBlob))
-                {
-                    CloudPageBlob pageBlob = (CloudPageBlob)item;
-                    Console.WriteLine("Page Blob of length {0} : {1}", pageBlob.Properties.Length, pageBlob.Uri);
-                }
-                else if (item.GetType() == typeof(CloudBlobDirectory))
-                {
-                    CloudBlobDirectory directory = (CloudBlobDirectory)item;
-
-                    Console.WriteLine("Directory: {0}", directory.Uri);
-                }
-
-            }
-
-            return View("Index");
-
+            return View(blobsList);
+    
         }
-      
-
-
-       
-
 
 
     }
