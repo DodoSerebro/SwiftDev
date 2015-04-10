@@ -223,6 +223,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Controllers\MethodologiesController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Models\RequirementCountEntity.cs" />
     <Compile Include="Models\RequirementsEngineeringModel.cs" />
     <Compile Include="Models\SwiftDevModels.cs" />
     <Compile Include="Models\SystemDesignModel.cs" />

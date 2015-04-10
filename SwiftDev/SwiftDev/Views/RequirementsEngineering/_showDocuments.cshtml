@@ -1,8 +1,21 @@
-﻿@{
-    foreach (var item in Model.Files)
-    {
-        <a href="@item.URL">@item.Name</a>
-    }
+﻿
+        <table class="table table-hover" id="template-table">
+            <thead>
+                <tr>
+                    <th>Document Name</th>
+                    <th id="download">Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in Model.Files)
+                    {
+                        <tr>
+                            <td>@Path.GetFileNameWithoutExtension(item.Name)</td>
+                            <td id="download"><a href="@item.URL"><i class="fa fa-download fa-2x"></i></a></td>
+                        </tr>
+                    }
 
-}
-
+                }
+            </tbody>
+        </table>

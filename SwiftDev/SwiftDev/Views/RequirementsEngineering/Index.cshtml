@@ -18,14 +18,145 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseDFD">Data Flow Diagrams</a>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseproposal">Proposal Documents</a>
             </h4>
         </div>
-        <div id="collapseDFD" class="panel-collapse collapse">
+        <div id="collapseproposal" class="panel-collapse collapse">
             <div class="panel-body">
 
                 <!--    This class will show all the Concerning System Designs with
-                    the option of uploading a new design (providing User has sufficient rights)-->
+            the option of uploading a new design (providing User has sufficient rights)-->
+                @using (Html.BeginForm("DocumentUpload", "RequirementsEngineering", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="proposaltemplate" type="file" multiple="multiple">
+                        <input type="submit" value="Upload Document" />
+                    </div>
+
+                }
+
+                @{
+                    Html.RenderAction("_showDocuments", "RequirementsEngineering", new { containerName = "proposalTemplate" });
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <!-- START OF Risk Management -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapserisk">Risk Management Documents</a>
+            </h4>
+        </div>
+        <div id="collapserisk" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                <!--    This class will show all the Concerning System Designs with
+            the option of uploading a new design (providing User has sufficient rights)-->
+                @using (Html.BeginForm("DocumentUpload", "RequirementsEngineering", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="riskmanagement" type="file" multiple="multiple">
+                        <input type="submit" value="Upload Document" />
+                    </div>
+
+                }
+
+                @{
+                    Html.RenderAction("_showDocuments", "RequirementsEngineering", new { containerName = "riskmanagement" });
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- END OF RISK MANAGEMET-->
+
+    <!-- START OF PROJECT STATUS -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseproject">Project Status Documents</a>
+            </h4>
+        </div>
+        <div id="collapseproject" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                <!--    This class will show all the Concerning System Designs with
+            the option of uploading a new design (providing User has sufficient rights)-->
+                @using (Html.BeginForm("DocumentUpload", "RequirementsEngineering", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="projectstatus" type="file" multiple="multiple">
+                        <input type="submit" value="Upload Document" />
+                    </div>
+
+                }
+
+                @{
+                    Html.RenderAction("_showDocuments", "RequirementsEngineering", new { containerName = "projectstatus" });
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- END OF PROJECT STATUS-->
+
+    <!-- START OF SYSTEM DESIGN-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapsesystemdesign">System Design Documents</a>
+            </h4>
+        </div>
+        <div id="collapsesystemdesign" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                <!--    This class will show all the Concerning System Designs with
+            the option of uploading a new design (providing User has sufficient rights)-->
+                @using (Html.BeginForm("DocumentUpload", "RequirementsEngineering", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="systemdesign" type="file" multiple="multiple">
+                        <input type="submit" value="Upload Document" />
+                    </div>
+
+                }
+
+                @{
+                    Html.RenderAction("_showDocuments", "RequirementsEngineering", new { containerName = "systemdesign" });
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- END OF SYSTEM DESIGN -->
+
+    <!-- START OF ISSUE LOG-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseissue"> Issue Log Documents</a>
+            </h4>
+        </div>
+        <div id="collapseissue" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                <!--    This class will show all the Concerning System Designs with
+            the option of uploading a new design (providing User has sufficient rights)-->
                 @using (Html.BeginForm("DocumentUpload", "RequirementsEngineering", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken();
@@ -45,3 +176,104 @@
             </div>
         </div>
     </div>
+    <!-- END OF ISSUE LOG -->
+
+    <!-- START OF TEST PLAN -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapsetest">Test Plan Documents</a>
+            </h4>
+        </div>
+        <div id="collapsetest" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                <!--    This class will show all the Concerning System Designs with
+                the option of uploading a new design (providing User has sufficient rights)-->
+                @using (Html.BeginForm("DocumentUpload", "RequirementsEngineering", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="testplan" type="file" multiple="multiple">
+                        <input type="submit" value="Upload Document" />
+                    </div>
+
+                }
+
+                @{
+                    Html.RenderAction("_showDocuments", "RequirementsEngineering", new { containerName = "testplan" });
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- END OF TEST PLAN-->
+
+    <!-- START OF PERFORMANCE TESTING -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseperformance">Performancing Testing Documents</a>
+            </h4>
+        </div>
+        <div id="collapseperformance" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                <!--    This class will show all the Concerning System Designs with
+            the option of uploading a new design (providing User has sufficient rights)-->
+                @using (Html.BeginForm("DocumentUpload", "RequirementsEngineering", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="performancereport" type="file" multiple="multiple">
+                        <input type="submit" value="Upload Document" />
+                    </div>
+
+                }
+
+                @{
+                    Html.RenderAction("_showDocuments", "RequirementsEngineering", new { containerName = "performancereport" });
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- END OF PERFORMANCE TESTING -->
+
+    <!-- START OF QUALITY CHECKLIST -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapsequalitychecklist">Quality Checklist Documents</a>
+            </h4>
+        </div>
+        <div id="collapsequalitychecklist" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                <!--    This class will show all the Concerning System Designs with
+            the option of uploading a new design (providing User has sufficient rights)-->
+                @using (Html.BeginForm("DocumentUpload", "RequirementsEngineering", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="qualitychecklist" type="file" multiple="multiple">
+                        <input type="submit" value="Upload Document" />
+                    </div>
+
+                }
+
+                @{
+                    Html.RenderAction("_showDocuments", "RequirementsEngineering", new { containerName = "qualitychecklist" });
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- END OF QUALITY CHECKLIST -->
+    </div> <!--- End of panel group --->

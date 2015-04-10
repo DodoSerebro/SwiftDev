@@ -8,6 +8,7 @@ using System.IO;
 
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Table;
 using Microsoft.WindowsAzure.Storage;
 
 
@@ -67,4 +68,6 @@ namespace SwiftDev.Models
         public List<SystemDesign> Files { get; set; }
     }
    
+
+
 }

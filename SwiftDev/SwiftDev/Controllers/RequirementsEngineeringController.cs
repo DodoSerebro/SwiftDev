@@ -14,6 +14,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.File;
+using Microsoft.WindowsAzure.Storage.Table;
 using Microsoft.WindowsAzure;
 using SwiftDev.Models;
 
@@ -71,15 +72,16 @@ namespace SwiftDev.Controllers
         [HttpPost]
         public ActionResult DocumentUpload()
         {
-            int count = 1;
+
+            var count = 0;
 
             var issueLog = Request.Files["issueLog"];
             var testPlan = Request.Files["testplan"];
             var performanceReport = Request.Files["performancereport"];
             var projectstatus = Request.Files["projectstatus"];
-            var proposalTemplate = Request.Files["proposalTemplate"];
-            var qualitychecklist = Request.Files["qualitychecklist "];
-            var riskmanagement = Request.Files["riskamanagement"];
+            var proposalTemplate = Request.Files["proposaltemplate"];
+            var qualitychecklist = Request.Files["qualitychecklist"];
+            var riskmanagement = Request.Files["riskmanagement"];
             var systemdesign = Request.Files["systemdesign"];
 
 
@@ -105,16 +107,110 @@ namespace SwiftDev.Controllers
 
             if (issueLog !=null)
             {
-                count = container.ListBlobs().Count();
-                string uniqueBlobName = string.Format("issueLog/Issue Log Version {0}", count);
+                string uniqueBlobName = string.Format("issueLog/Issue Log Version_{0}{1}", Guid.NewGuid().ToString(), Path.GetExtension(issueLog.FileName));
                 CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
                 blob.Properties.ContentType = issueLog.ContentType;
-                blob.UploadFromStream(issueLog.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(issueLog.InputStream); }
+               
+                
+            }
+            else if (testPlan != null)
+            {
+                count = container.ListBlobs().Count();
+                string uniqueBlobName = string.Format("testplan/Test Plan Version_{0}{1}", Guid.NewGuid().ToString(), Path.GetExtension(testPlan.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                blob.Properties.ContentType = testPlan.ContentType;
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(testPlan.InputStream); }
+
+            }
+            else if (performanceReport != null)
+            {
+                count = container.ListBlobs().Count();
+                string uniqueBlobName = string.Format("performancereport/Performance Report Version_{0}{1}", Guid.NewGuid().ToString(), Path.GetExtension(performanceReport.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                blob.Properties.ContentType = performanceReport.ContentType;
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(performanceReport.InputStream); }
+
+            }
+            else if (projectstatus != null)
+            {
+                count = container.ListBlobs().Count();
+                string uniqueBlobName = string.Format("projectstatus/Project Status Report Version_{0}{1}", Guid.NewGuid().ToString(), Path.GetExtension(projectstatus.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                blob.Properties.ContentType = projectstatus.ContentType;
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(projectstatus.InputStream); }
+
+            }
+            else if (proposalTemplate != null)
+            {
+                count = container.ListBlobs().Count();
+                string uniqueBlobName = string.Format("proposalTemplate/Proposal Template Version_{0}{1}", Guid.NewGuid().ToString(), Path.GetExtension(proposalTemplate.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                blob.Properties.ContentType = proposalTemplate.ContentType;
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(proposalTemplate.InputStream); }
+
+            }
+            else if (qualitychecklist != null)
+            {
+                count = container.ListBlobs().Count();
+                string uniqueBlobName = string.Format("qualitychecklist/Quality Checklist Version_{0}{1}", Guid.NewGuid().ToString(), Path.GetExtension(qualitychecklist.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                blob.Properties.ContentType = qualitychecklist.ContentType;
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(qualitychecklist.InputStream); }
+            }
+            else if (riskmanagement != null)
+            {
+                count = container.ListBlobs().Count();
+                string uniqueBlobName = string.Format("riskmanagement/Risk Management Version_{0}{1}", Guid.NewGuid().ToString(), Path.GetExtension(riskmanagement.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                blob.Properties.ContentType = riskmanagement.ContentType;
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(riskmanagement.InputStream); }
+            }
+            else if (systemdesign != null)
+            {
+                count = container.ListBlobs().Count();
+                string uniqueBlobName = string.Format("systemdesign/System Design Version_{0}{1}", Guid.NewGuid().ToString(), Path.GetExtension(systemdesign.FileName));
+                CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
+                blob.Properties.ContentType = systemdesign.ContentType;
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(systemdesign.InputStream); }
             }
             else
             {
 
             }
+            
 
 
             return RedirectToAction("index");
@@ -136,5 +232,9 @@ namespace SwiftDev.Controllers
 
             return PartialView(blobsList);
         }
+
+
+
+
     }
 }
