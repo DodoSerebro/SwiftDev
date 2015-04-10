@@ -209,6 +209,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RequirementsEngineeringController.cs" />
     <Compile Include="Controllers\SystemDesignController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +223,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Controllers\MethodologiesController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Models\RequirementsEngineeringModel.cs" />
     <Compile Include="Models\SwiftDevModels.cs" />
     <Compile Include="Models\SystemDesignModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -311,6 +313,9 @@
     <Content Include="Views\Methodologies\Index.cshtml" />
     <Content Include="Views\SystemDesign\Index.cshtml" />
     <Content Include="Views\SystemDesign\_showBlobs.cshtml" />
+    <Content Include="Views\RequirementsEngineering\Index.cshtml" />
+    <Content Include="Views\RequirementsEngineering\_showTemplates.cshtml" />
+    <Content Include="Views\RequirementsEngineering\_showDocuments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -78,6 +78,24 @@ textarea {
     float:left;
 }
 
+#template-table
+{
+    font-size:1.1em;
+    width:80%;
+    margin: 0 auto;
+    
+}
+
+#download
+{
+    text-align:center;
+    
+}
+
+
+
+
+
 #showDate
 {
     font-weight:bold;

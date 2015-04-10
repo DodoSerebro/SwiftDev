@@ -1,0 +1,47 @@
+﻿@model SwiftDev.Models.RequirementsEngineeringModel
+
+
+@{
+    ViewBag.Title = "System Requirements";
+
+}
+
+
+<h2> @ViewBag.Title</h2>
+@{
+    Html.RenderAction("_showTemplates", "RequirementsEngineering");
+}
+
+
+<div class="panel-group" id="accordion">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseDFD">Data Flow Diagrams</a>
+            </h4>
+        </div>
+        <div id="collapseDFD" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                <!--    This class will show all the Concerning System Designs with
+                    the option of uploading a new design (providing User has sufficient rights)-->
+                @using (Html.BeginForm("DocumentUpload", "RequirementsEngineering", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="issueLog" type="file" multiple="multiple">
+                        <input type="submit" value="Upload Document" />
+                    </div>
+
+                }
+
+                @{
+                    Html.RenderAction("_showDocuments", "RequirementsEngineering", new { containerName = "issueLog" });
+                }
+
+            </div>
+        </div>
+    </div>
