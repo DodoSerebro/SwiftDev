@@ -49,8 +49,8 @@ namespace SwiftDev.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "User Name")]
         public string Email { get; set; }
 
         [Required]
@@ -79,6 +79,29 @@ namespace SwiftDev.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "Current Project")]
+        public int CurrentProject { get; set; }
+        
+
+
+
     }
 
     public class ResetPasswordViewModel

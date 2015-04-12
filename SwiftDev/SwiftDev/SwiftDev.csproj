@@ -184,20 +184,31 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RequirementsEngineeringController.cs" />
+    <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SystemDesignController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201504120046327_InitialCreate.cs" />
-    <Compile Include="Migrations\201504120046327_InitialCreate.Designer.cs">
-      <DependentUpon>201504120046327_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201504112134277_AddedValues.cs" />
+    <Compile Include="Migrations\201504112134277_AddedValues.Designer.cs">
+      <DependentUpon>201504112134277_AddedValues.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201504120129557_AddedData.cs" />
-    <Compile Include="Migrations\201504120129557_AddedData.Designer.cs">
-      <DependentUpon>201504120129557_AddedData.cs</DependentUpon>
+    <Compile Include="Migrations\201504112157569_test.cs" />
+    <Compile Include="Migrations\201504112157569_test.Designer.cs">
+      <DependentUpon>201504112157569_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504122133434_nojoindate.cs" />
+    <Compile Include="Migrations\201504122133434_nojoindate.Designer.cs">
+      <DependentUpon>201504122133434_nojoindate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504122134477_nouserstillemployed.cs" />
+    <Compile Include="Migrations\201504122134477_nouserstillemployed.Designer.cs">
+      <DependentUpon>201504122134477_nouserstillemployed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RequirementsEngineeringModel.cs" />
@@ -290,6 +301,16 @@
     <Content Include="Views\SystemDesign\Index.cshtml" />
     <Content Include="Views\SystemDesign\_showBlobs.cshtml" />
     <Content Include="Views\RequirementsEngineering\Index.cshtml" />
+    <Content Include="Views\RolesAdmin\Index.cshtml" />
+    <Content Include="Views\RolesAdmin\Delete.cshtml" />
+    <Content Include="Views\RolesAdmin\Details.cshtml" />
+    <Content Include="Views\RolesAdmin\Edit.cshtml" />
+    <Content Include="Views\RolesAdmin\Create.cshtml" />
+    <Content Include="Views\UserAdmin\Create.cshtml" />
+    <Content Include="Views\UserAdmin\Delete.cshtml" />
+    <Content Include="Views\UserAdmin\Details.cshtml" />
+    <Content Include="Views\UserAdmin\Edit.cshtml" />
+    <Content Include="Views\UserAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,11 +320,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504120046327_InitialCreate.resx">
-      <DependentUpon>201504120046327_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504112134277_AddedValues.resx">
+      <DependentUpon>201504112134277_AddedValues.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504120129557_AddedData.resx">
-      <DependentUpon>201504120129557_AddedData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504112157569_test.resx">
+      <DependentUpon>201504112157569_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504122133434_nojoindate.resx">
+      <DependentUpon>201504122133434_nojoindate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504122134477_nouserstillemployed.resx">
+      <DependentUpon>201504122134477_nouserstillemployed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

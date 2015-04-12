@@ -3,7 +3,7 @@ namespace SwiftDev.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddedData : DbMigration
+    public partial class nouserstillemployed : DbMigration
     {
         public override void Up()
         {

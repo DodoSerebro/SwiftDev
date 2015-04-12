@@ -6,14 +6,14 @@ namespace SwiftDev.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class AddedData : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
+    public sealed partial class AddedValues : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedValues));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504120129557_AddedData"; }
+            get { return "201504112134277_AddedValues"; }
         }
         
         string IMigrationMetadata.Source

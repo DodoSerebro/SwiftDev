@@ -19,7 +19,23 @@ namespace SwiftDev.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            
+            if (!context.Roles.Any())
+            {
+                var roleStore = new RoleStore<IdentityRole>(context);
+                var roleManager = new RoleManager<IdentityRole>(roleStore);
+                var role = new IdentityRole { Name = "Admin" };
+                roleManager.Create(role);
+            }
+
+            if(!context.Users.Any())
+            {
+                var userStore = new UserStore<ApplicationUser>(context);
+                var userManager = new ApplicationUserManager(userStore);
+
+                var user = new ApplicationUser {Email = "admin@example.com",UserName="superUser"};
+                userManager.Create(user,"P@ssword1");
+                userManager.AddToRole(user.Id,"Admin");
+            }
             
 
             //  This method will be called after migrating to the latest version.

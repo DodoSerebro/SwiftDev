@@ -75,7 +75,11 @@ namespace SwiftDev.Controllers
                 CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
 
                 blob.Properties.ContentType = dfd.ContentType;
-                blob.UploadFromStream(dfd.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(dfd.InputStream); }
             }
             else if (classdiagram != null)
             {
@@ -85,7 +89,11 @@ namespace SwiftDev.Controllers
 
 
                 blob.Properties.ContentType = classdiagram.ContentType;
-                blob.UploadFromStream(classdiagram.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(classdiagram.InputStream); }
             }
             else if (objectdiagram != null)
             {
@@ -95,7 +103,11 @@ namespace SwiftDev.Controllers
 
 
                 blob.Properties.ContentType = objectdiagram.ContentType;
-                blob.UploadFromStream(objectdiagram.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(objectdiagram.InputStream); }
             }
 
             else if (componentdiagram != null)
@@ -106,7 +118,11 @@ namespace SwiftDev.Controllers
 
 
                 blob.Properties.ContentType = componentdiagram.ContentType;
-                blob.UploadFromStream(componentdiagram.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(componentdiagram.InputStream); }
             }
             else if (deploymentdiagram != null)
             {
@@ -116,7 +132,11 @@ namespace SwiftDev.Controllers
 
 
                 blob.Properties.ContentType = deploymentdiagram.ContentType;
-                blob.UploadFromStream(deploymentdiagram.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(deploymentdiagram.InputStream); }
             }
             else if (usecasediagram != null)
             {
@@ -125,7 +145,11 @@ namespace SwiftDev.Controllers
                 CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
 
                 blob.Properties.ContentType = usecasediagram.ContentType;
-                blob.UploadFromStream(usecasediagram.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(usecasediagram.InputStream); }
             }
             else if (sequencediagram != null)
             {
@@ -135,7 +159,11 @@ namespace SwiftDev.Controllers
 
 
                 blob.Properties.ContentType = sequencediagram.ContentType;
-                blob.UploadFromStream(sequencediagram.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(sequencediagram.InputStream); }
             }
             else if (collaborationdiagram != null)
             {
@@ -145,7 +173,11 @@ namespace SwiftDev.Controllers
 
 
                 blob.Properties.ContentType = collaborationdiagram.ContentType;
-                blob.UploadFromStream(collaborationdiagram.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(collaborationdiagram.InputStream); }
             }
             else if (statediagram != null)
             {
@@ -155,7 +187,11 @@ namespace SwiftDev.Controllers
 
 
                 blob.Properties.ContentType = statediagram.ContentType;
-                blob.UploadFromStream(statediagram.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(statediagram.InputStream); }
             }
             else if (activitydiagram != null)
             {
@@ -165,7 +201,11 @@ namespace SwiftDev.Controllers
 
 
                 blob.Properties.ContentType = activitydiagram.ContentType;
-                blob.UploadFromStream(activitydiagram.InputStream);
+                if (blob.Properties.ContentType == "application/octet-stream")
+                {
+
+                }
+                else { blob.UploadFromStream(activitydiagram.InputStream); }
             }
             else
             {
