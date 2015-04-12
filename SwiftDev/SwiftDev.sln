@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftDev", "SwiftDev\SwiftDev.csproj", "{A1D69D8C-2EC0-4EBF-B646-D6C4DC6FC47A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftDev", "SwiftDev\SwiftDev.csproj", "{FEA5BAD0-E0C3-4782-B2A3-5CEA97E448F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A1D69D8C-2EC0-4EBF-B646-D6C4DC6FC47A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1D69D8C-2EC0-4EBF-B646-D6C4DC6FC47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1D69D8C-2EC0-4EBF-B646-D6C4DC6FC47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1D69D8C-2EC0-4EBF-B646-D6C4DC6FC47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEA5BAD0-E0C3-4782-B2A3-5CEA97E448F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEA5BAD0-E0C3-4782-B2A3-5CEA97E448F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEA5BAD0-E0C3-4782-B2A3-5CEA97E448F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEA5BAD0-E0C3-4782-B2A3-5CEA97E448F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

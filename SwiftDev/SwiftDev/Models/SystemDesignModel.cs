@@ -18,11 +18,11 @@ namespace SwiftDev.Models
     {
         public string URL { get; set; }
 
- 
+
 
         public SystemDesign() { }
 
-        public SystemDesign (string url)
+        public SystemDesign(string url)
         {
             this.URL = url;
         }
@@ -33,8 +33,8 @@ namespace SwiftDev.Models
             if (item is CloudBlockBlob)
             {
                 var blob = (CloudBlockBlob)item;
-                return new SystemDesign 
-                {   
+                return new SystemDesign
+                {
                     URL = blob.Uri.ToString(),
                 };
 
@@ -42,13 +42,14 @@ namespace SwiftDev.Models
             return null;
         }
 
-    }   
-    
+    }
+
 
     // System Design Model 
     public partial class SystemDesignModel
     {
-        public SystemDesignModel() : this(null)
+        public SystemDesignModel()
+            : this(null)
         {
             Files = new List<SystemDesign>();
         }
@@ -58,16 +59,16 @@ namespace SwiftDev.Models
             Files = new List<SystemDesign>();
 
             foreach (var item in list)
-                {
-                    SystemDesign image = SystemDesign.returnImageURL(item);
-                    Files.Add(image);                 
-                }
-            
-           
+            {
+                SystemDesign image = SystemDesign.returnImageURL(item);
+                Files.Add(image);
+            }
+
+
         }
         public List<SystemDesign> Files { get; set; }
     }
-   
+
 
 
 }

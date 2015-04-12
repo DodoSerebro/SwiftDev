@@ -21,7 +21,7 @@ namespace SwiftDev.Controllers
 {
     public class SystemDesignController : Controller
     {
-       
+
         // GET: SystemDesign
         public ActionResult Index()
         {
@@ -43,9 +43,9 @@ namespace SwiftDev.Controllers
             var collaborationdiagram = Request.Files["collaborationdiagram"];
             var statediagram = Request.Files["statediagram"];
             var activitydiagram = Request.Files["activitydiagram"];
-            
 
-            
+
+
             // --- SETTING UP THE CONTAINER --- //
 
             // Create the CloudStorageAccount
@@ -55,10 +55,10 @@ namespace SwiftDev.Controllers
 
 
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            
+
             // Retrieve Reference to container
             CloudBlobContainer container = blobClient.GetContainerReference("systemdesign");
-            
+
             // Create if Non-existant
             container.CreateIfNotExists();
 
@@ -73,7 +73,7 @@ namespace SwiftDev.Controllers
                 string uniqueBlobName = string.Format("dfd/image_{0}{1}",
                     Guid.NewGuid().ToString(), Path.GetExtension(dfd.FileName));
                 CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
-                
+
                 blob.Properties.ContentType = dfd.ContentType;
                 blob.UploadFromStream(dfd.InputStream);
             }
@@ -82,7 +82,7 @@ namespace SwiftDev.Controllers
                 string uniqueBlobName = string.Format("classdiagram/image_{0}{1}",
                     Guid.NewGuid().ToString(), Path.GetExtension(classdiagram.FileName));
                 CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
-                
+
 
                 blob.Properties.ContentType = classdiagram.ContentType;
                 blob.UploadFromStream(classdiagram.InputStream);
@@ -97,7 +97,7 @@ namespace SwiftDev.Controllers
                 blob.Properties.ContentType = objectdiagram.ContentType;
                 blob.UploadFromStream(objectdiagram.InputStream);
             }
-            
+
             else if (componentdiagram != null)
             {
                 string uniqueBlobName = string.Format("componentdiagram/image_{0}{1}",
@@ -108,8 +108,8 @@ namespace SwiftDev.Controllers
                 blob.Properties.ContentType = componentdiagram.ContentType;
                 blob.UploadFromStream(componentdiagram.InputStream);
             }
-            else if (deploymentdiagram !=null)
-            {                                                                                           
+            else if (deploymentdiagram != null)
+            {
                 string uniqueBlobName = string.Format("deploymentdiagram/image_{0}{1}",
                     Guid.NewGuid().ToString(), Path.GetExtension(deploymentdiagram.FileName));
                 CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
@@ -171,9 +171,9 @@ namespace SwiftDev.Controllers
             {
 
             }
-            return RedirectToAction("Index");    
-                
-        
+            return RedirectToAction("Index");
+
+
         }
 
         [ChildActionOnly]
@@ -184,14 +184,14 @@ namespace SwiftDev.Controllers
 
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             CloudBlobContainer storageContainer = blobClient.GetContainerReference("systemdesign");
-            
+
 
             SystemDesignModel blobsList = new SystemDesignModel(storageContainer.ListBlobs(containerName, useFlatBlobListing: true));
-     
-           
+
+
 
             return PartialView(blobsList);
-    
+
         }
 
 

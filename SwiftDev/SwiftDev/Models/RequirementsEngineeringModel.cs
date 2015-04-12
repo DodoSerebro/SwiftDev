@@ -13,9 +13,9 @@ namespace SwiftDev.Models
         public string URL { get; set; }
         public string Name { get; set; }
         public string ContentType { get; set; }
-        
+
         public RequirementsEngineering() { }
-        
+
         public RequirementsEngineering(string url, string name, string content)
         {
             this.URL = url;
@@ -24,7 +24,7 @@ namespace SwiftDev.Models
         }
 
 
-        public static RequirementsEngineering returnDocumentURL (IListBlobItem item)
+        public static RequirementsEngineering returnDocumentURL(IListBlobItem item)
         {
             if (item is CloudBlockBlob)
             {
@@ -32,24 +32,25 @@ namespace SwiftDev.Models
                 return new RequirementsEngineering
                 {
                     URL = blob.Uri.ToString(),
-                    Name = blob.Name.Substring(blob.Name.LastIndexOf('/')+1),
+                    Name = blob.Name.Substring(blob.Name.LastIndexOf('/') + 1),
                     ContentType = blob.Properties.ContentType,
                 };
             }
             return null;
         }
-        
+
 
 
     }
 
     public partial class RequirementsEngineeringModel
     {
-        public RequirementsEngineeringModel() : this (null)
+        public RequirementsEngineeringModel()
+            : this(null)
         {
             Files = new List<RequirementsEngineering>();
         }
-        
+
         public RequirementsEngineeringModel(IEnumerable<IListBlobItem> list)
         {
             Files = new List<RequirementsEngineering>();
@@ -60,7 +61,7 @@ namespace SwiftDev.Models
                 Files.Add(document);
             }
         }
-    
+
 
 
         public List<RequirementsEngineering> Files { get; set; }

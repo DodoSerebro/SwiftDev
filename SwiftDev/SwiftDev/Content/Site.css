@@ -305,6 +305,15 @@ textarea {
     }
 }
 
+@media (min-width: 992px)
+{
+    .col
+    #login-container
+    {
+        margin:0 auto;
+    }
+}
+
 @media (max-width: 600px) 
 {
 

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SwiftDev")]
-[assembly: AssemblyDescription("A Collaboration Tool made on par with The BSc.IT in Software Development- Hons Thesis 2014")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("SwiftDev")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fa291e53-5906-4e9b-bccd-b4de48b4f5f5")]    
+[assembly: Guid("17f7214c-7440-4d09-af2e-0e725ce76181")]
 
 // Version information for an assembly consists of the following four values:
 //

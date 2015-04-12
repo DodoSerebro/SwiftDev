@@ -23,7 +23,7 @@ namespace SwiftDev.Controllers
 {
     public class RequirementsEngineeringController : Controller
     {
-        
+
         // GET: Index which is seen by any ROLE
         public ActionResult Index()
         {
@@ -38,9 +38,9 @@ namespace SwiftDev.Controllers
 
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             CloudBlobContainer container = blobClient.GetContainerReference("systemrequirements");
-           
 
-            RequirementsEngineeringModel documentsListBlob = new RequirementsEngineeringModel(container.ListBlobs("templates", useFlatBlobListing : true));
+
+            RequirementsEngineeringModel documentsListBlob = new RequirementsEngineeringModel(container.ListBlobs("templates", useFlatBlobListing: true));
 
 
             return PartialView(documentsListBlob);
@@ -68,7 +68,7 @@ namespace SwiftDev.Controllers
             return PartialView("_showTemplates");
         }
          */
-   
+
         [HttpPost]
         public ActionResult DocumentUpload()
         {
@@ -105,7 +105,7 @@ namespace SwiftDev.Controllers
 
             // Foreach document we shall keep the version number
 
-            if (issueLog !=null)
+            if (issueLog != null)
             {
                 string uniqueBlobName = string.Format("issueLog/Issue Log Version_{0}{1}", Guid.NewGuid().ToString(), Path.GetExtension(issueLog.FileName));
                 CloudBlockBlob blob = container.GetBlockBlobReference(uniqueBlobName);
@@ -115,8 +115,8 @@ namespace SwiftDev.Controllers
 
                 }
                 else { blob.UploadFromStream(issueLog.InputStream); }
-               
-                
+
+
             }
             else if (testPlan != null)
             {
@@ -210,7 +210,7 @@ namespace SwiftDev.Controllers
             {
 
             }
-            
+
 
 
             return RedirectToAction("index");
