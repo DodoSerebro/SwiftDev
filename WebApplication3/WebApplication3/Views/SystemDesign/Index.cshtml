@@ -1,0 +1,295 @@
+﻿@model IdentitySample.Models.SystemDesignModel
+
+@{
+    ViewBag.Title = "System Designs";
+}
+<h2>@ViewBag.Title</h2>
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseDFD">Data Flow Diagrams</a>
+            </h4>
+        </div>
+        <div id="collapseDFD" class="panel-collapse collapse">
+            <div class="panel-body">
+                <!--    This class will show all the Concerning System Designs with
+                    the option of uploading a new design (providing User has sufficient rights)-->
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="dfd" type="file" multiple="multiple">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "dfd" });
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- END OF DFD UPLOAD-->
+    <!-- START OF CLASS DIAGRAMS UPLOAD -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseClass">Class Diagrams</a>
+            </h4>
+        </div>
+        <div id="collapseClass" class="panel-collapse collapse">
+            <div class="panel-body">
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="classdiagram" type="file" multiple="multiple" accept="image/*">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+                <!-- Class Diagarm Show Files-->
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "classdiagram" });
+                }
+            </div>
+        </div>
+    </div>
+    <!-- END OF CLASS DIAGRAM UPLOAD-->
+    <!-- START OF OBJECT DIAGRAM UPLOAD-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#objectDiagram">Object Diagrams</a>
+            </h4>
+        </div>
+        <div id="objectDiagram" class="panel-collapse collapse">
+            <div class="panel-body">
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="objectdiagram" type="file" multiple="multiple" accept="image/*">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+                <!-- Object Diagarm Show Files-->
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "objectdiagram" });
+                }
+            </div>
+        </div>
+    </div>
+    <!-- END OF OBJECT DIAGRAM UPLOAD-->
+    <!-- START OF COMPONENT DIAGRAM UPLOAD-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#componentDiagram">Component Diagrams</a>
+            </h4>
+        </div>
+        <div id="componentDiagram" class="panel-collapse collapse">
+            <div class="panel-body">
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="componentdiagram" type="file" multiple="multiple" accept="image/*">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+                <!-- Component Diagarm Show Files-->
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "componentdiagram" });
+                }
+            </div>
+        </div>
+    </div>
+    <!-- END OF COMPONENT DIAGRAM UPLOAD-->
+    <!-- START OF DEPLOYMENT DIAGRAM UPLOAD-->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#deploymentDiagram">Deployment Diagrams</a>
+            </h4>
+        </div>
+        <div id="deploymentDiagram" class="panel-collapse collapse">
+            <div class="panel-body">
+                <!---------------------------------------->
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="deploymentdiagram" type="file" multiple="multiple" accept="image/*">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+
+                <!-- Deployment Diagarm Show Files-->
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "deploymentdiagram" });
+                }
+            </div>
+        </div>
+    </div>
+    <!-- END OF DEPLOYMENT DIAGRAM -->
+    <!-- START OF USE CASE DIAGRAM -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#usecasediagram">Use Case Diagrams</a>
+            </h4>
+        </div>
+        <div id="usecasediagram" class="panel-collapse collapse">
+            <div class="panel-body">
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="usecasediagram" type="file" multiple="multiple" accept="image/*">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+                <!-- Use Case Diagarm Show Files-->
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "usecasediagram" });
+                }
+            </div>
+        </div>
+    </div>
+    <!-- END OF USE CASE DIAGRAM -->
+    <!-- START OF SEQUENCE DIAGRAM-->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#sequenceDiagram">Sequence Diagrams</a>
+            </h4>
+        </div>
+        <div id="sequenceDiagram" class="panel-collapse collapse">
+            <div class="panel-body">
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="sequencediagram" type="file" multiple="multiple" accept="image/*">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+
+                <!-- Sequence Diagarm Show Files-->
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "sequencediagram" });
+                }
+            </div>
+        </div>
+    </div>
+    <!-- END OF SEQUENCE DIAGRAMS-->
+    <!-- START OF COLLABORATION DIAGRAM -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collaborationdiagram">Collaboration Diagrams</a>
+            </h4>
+        </div>
+        <div id="collaborationdiagram" class="panel-collapse collapse">
+            <div class="panel-body">
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        Select Image to upload an Collaboration Diagram
+                        <input name="collaborationdiagram" type="file" multiple="multiple" accept="image/*">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+                <!-- Collaboration Diagarm Show Files-->
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "collaborationdiagram" });
+                }
+            </div>
+        </div>
+    </div>
+    <!-- END OF COLLBARTION DIAGRAM -->
+    <!-- START OF STATE DIAGRAM -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#statediagram">State Diagrams</a>
+            </h4>
+        </div>
+        <div id="statediagram" class="panel-collapse collapse">
+            <div class="panel-body">
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="statediagram" type="file" multiple="multiple" accept="image/*">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+
+                <!-- stateDiagram show files-->
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "statediagram" });
+                }
+            </div>
+        </div>
+    </div>
+    <!-- END OF STATE DIAGRAM -->
+    <!-- START OF ACTIVITY DIAGRAM -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#activitydiagram">Activity Diagrams</a>
+            </h4>
+        </div>
+        <div id="activitydiagram" class="panel-collapse collapse">
+            <div class="panel-body">
+                @using (Html.BeginForm("ImageUpload", "SystemDesign", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.ValidationSummary(true);
+
+                    <div>
+                        <input name="activitydiagram" type="file" multiple="multiple" accept="image/*">
+                        <input type="submit" value="Upload Image" />
+                    </div>
+
+                }
+                <!-- Activity Diagarm Show Files-->
+                @{
+                    Html.RenderAction("_showBlobs", "SystemDesign", new { containerName = "activitydiagram" });
+                }
+            </div>
+        </div>
+    </div>
+</div>
