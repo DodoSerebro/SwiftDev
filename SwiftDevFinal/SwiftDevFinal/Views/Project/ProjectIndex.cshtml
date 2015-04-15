@@ -1,0 +1,70 @@
+﻿@model IEnumerable<IdentitySample.Models.ProjectModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style type='text/css'>
+
+</style>
+<h2>Index</h2>
+<h4>Project</h4>
+<p>
+    @Html.ActionLink("Create New", "ProjectCreate")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Methodology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectLeader)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateStarted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFinished)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "ProjectEdit", new { id=item.ProjectID })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Methodology)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectLeader)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateStarted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFinished)
+        </td>
+
+    </tr>
+}
+
+</table>
